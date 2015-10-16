@@ -1,0 +1,17 @@
+      // legs move
+      stroke(100,100,100);
+      strokeWeight(12);
+      float toe=5;
+      if ( (frameCount/30) % 2 > 0) { toe=  -5; }        // Odd frames:  move toe left 
+      leg( marioX+5, marioY+80, toe ); 
+      leg( marioX+45, marioY+80, toe ); 
+      strokeWeight(1);
+
+
+
+
+    //// One leg (animated)
+    void leg( float x, float hip, float toe ) {
+            line( x,hip, x+toe,hip+40 );
+    }
+  
