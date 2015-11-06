@@ -1,4 +1,4 @@
-    //Project 1, monster who chases the hero and hero chases the gold
+   //Project 1, monster who chases the hero and hero chases the gold
     // Luis Fuentes
     // CST 112
     
@@ -76,16 +76,31 @@
       fill(250, 255, 100);
       rect(x, y, 10, 10);
     }
-    
+ void leg( float x, float hip, float toe ) {
+            line( x,hip, x+toe,hip+40 );
+    }    
     void drawHero() { 
+      fill(190,100,100); 
+      rect(marioX,marioY-20,30,30);
+      fill(100,100,190);
+      ellipse(marioX+10,marioY-10,5,5);
+      ellipse(marioX+20,marioY-10,5,5);
       fill(100,100,100);
-      rect(marioX, marioY, 200, 100);
+      rect(marioX, marioY, 30, 90);
       float dx = goldX - marioX;
       marioX += dx * 0.05;
       float dy = goldY - marioY;
       marioY += dy * 0.05;
+      stroke(100,100,100);
+      strokeWeight(8);
+      float toe=5;
+      if ( (frameCount/30) % 2 > 0) { toe=  -5; }        // Odd frames:  move toe left 
+      leg( marioX+5, marioY+90, toe ); 
+      leg( marioX+25, marioY+90, toe ); //
+      leg( marioX+30, marioY+20, toe+20 ); 
+      leg( marioX, marioY+20, toe-20 ); 
+      strokeWeight(1);
     }
-    
     void drawMonster() {
       fill(250, 100, 100);
       rect(ronaldX, ronaldY, 20, 40);
